@@ -1,14 +1,14 @@
 import React from 'react';
-import "./App.css";
+// import "./App.css";
+
+import MainPage from './components/MainPage';
 
 import ProductsContextProvider from './context/ProductsContextProvider';
 
 const App = () => {
     return (
         <ProductsContextProvider>
-            <div className="App">
-                asd
-            </div>
+            <MainPage />            
         </ProductsContextProvider>
     );
 };

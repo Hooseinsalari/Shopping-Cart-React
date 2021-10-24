@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { shortTitle } from '../helper/function';
+import { shortTitle } from '../../helper/function';
 
 const Product = ({productData}) => {
     return (
@@ -9,7 +10,8 @@ const Product = ({productData}) => {
             <h3>{shortTitle(productData.title)}</h3>
             <p>{productData.price}</p>
             <div>
-                {/* <p>{productData.description}</p> */}
+                
+                <Link to={`/product/${productData.id}`}>details</Link>
                 <div>
                     <button>click</button>
                 </div>

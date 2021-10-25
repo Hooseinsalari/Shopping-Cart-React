@@ -6,10 +6,10 @@ import { Switch , Redirect, Route } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import ProductsDetails from './components/ProductsDetails';
 import Navbar from './components/shared/Navbar';
-import CartProducts from './components/CartProducts';
+import ShopCart from './components/ShopCart';
 
 import ProductsContextProvider from './context/ProductsContextProvider';
-import CartContextProvider, {CartContext} from './context/CartContextProvider';
+import CartContextProvider from './context/CartContextProvider';
 
 const App = () => {
     return (
@@ -19,7 +19,7 @@ const App = () => {
                 <Switch>
                     <Route path="/product/:id" component={ProductsDetails} />
                     <Route path="/product" component={MainPage} />
-                    <Route path="/cart" component={CartProducts} />
+                    <Route path="/cart" component={ShopCart} />
                     <Redirect to="/product" />
                 </Switch>
             </CartContextProvider>

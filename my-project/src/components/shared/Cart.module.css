@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(180, 204, 204);
+    width: 78%;
+    border-radius: 20px;
+    margin: 68px auto;
+}
+
+.container .proimage {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.container .buttons {
+    padding: 5px;
+
+}
+
+.container .buttons .addBtn{
+    background-color: #1a73e8;
+    border: none;
+    padding: 2px;
+    border-radius: 20px;
+    width: 24px;
+    font-size: 18px;
+    margin: 5px;
+} 
+
+.container .buttons .removeBtn {
+    background-color: #1a73e8;
+    border: none;
+    padding: 2px;
+    border-radius: 20px;
+    width: 24px;
+    font-size: 18px;
+}
+
+.container .buttons .decreaseBtn {
+    background-color: #1a73e8;
+    border: none;
+    padding: 2px;
+    border-radius: 20px;
+    width: 24px;
+    font-size: 18px;
+}

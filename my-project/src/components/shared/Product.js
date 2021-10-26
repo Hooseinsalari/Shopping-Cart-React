@@ -9,28 +9,32 @@ import { CartContext } from '../../context/CartContextProvider';
 
 import trashIcon from "../../icon/trash.svg"
 
+import styles from "./Product.module.css";
+
 const Product = ({productData}) => {
 
     const { state, disPatch } = useContext(CartContext)
 
     return (
-        <div>
-            <img src={productData.image} alt="product" style={{width:"300px" , height:"300px"}}/>
-            <h3>{shortTitle(productData.title)}</h3>
-            <p>{productData.price}</p>
-            <div>
+        <div className={styles.container}>
+            <img className={styles.proimg} src={productData.image} alt="product"/>
+            <h3 className={styles.protitle}>{shortTitle(productData.title)}</h3>
+            <p className={styles.proprice}>{productData.price}</p>
+            <div className={styles.btnContainer}>
                 
-                <Link to={`/product/${productData.id}`}>details</Link>
-                <div>
-                    {quantityCount(state, productData.id) > 1 && <button onClick={() => disPatch({type:"DECREASE", payload: productData})}>-</button>}
-                    {quantityCount(state, productData.id) === 1 && <button onClick={() => disPatch({type:"REMOVE_ITEM", payload: productData})}><img src={trashIcon} alt="trash" style={{width:"15px"}} /></button>}
+                <div className={styles.buttons}>
+                    {quantityCount(state, productData.id) > 1 && <button className={styles.decreaseBtn} onClick={() => disPatch({type:"DECREASE", payload: productData})}>-</button>}
+                    {quantityCount(state, productData.id) === 1 && <button className={styles.removeBtn} onClick={() => disPatch({type:"REMOVE_ITEM", payload: productData})}><img src={trashIcon} alt="trash" style={{width:"16px"}} /></button>}
+                    {quantityCount(state, productData.id) > 0 && <span className={styles.quantity}>{quantityCount(state, productData.id)}</span>}
                     {
                         isInCart(state, productData.id) ?
-                        <button onClick={() => disPatch({type:"INCREASE" , payload:productData})}>+</button>:
-                        <button onClick={() => disPatch({type:"ADD_ITEM", payload:productData})}>Add to cart</button>
+                        <button className={styles.addBtn} onClick={() => disPatch({type:"INCREASE" , payload:productData})}>+</button>:
+                        <button className={styles.addToCartBtn} onClick={() => disPatch({type:"ADD_ITEM", payload:productData})}>Add to cart</button>
                     }
                 </div>
             </div>
+            <Link className={styles.detailsLink} to={`/product/${productData.id}`}>details</Link>
+
         </div>
     );
 };
